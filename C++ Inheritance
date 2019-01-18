@@ -1,0 +1,40 @@
+#include <iostream>
+using namespace std;
+enum terrain
+{
+	muddy,
+	slope,
+	flat
+};
+class vehicle {
+protected:
+	int id;
+	bool busy;
+	float maxspeed;
+public:
+	vehicle(int a, float b)
+	{
+		a = id;
+		b = maxspeed;
+		busy == 1;
+
+	}
+	float timetaken(int dist, terrain terr)
+	{
+		if (terr == muddy)
+		{
+			return maxspeed / 2;
+		}
+
+	}
+
+};
+class car : public vehicle(30, terr)
+{}
+int main()
+{
+	cout << endl;
+	system("pause");
+	return 0;
+}
+
