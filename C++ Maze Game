@@ -1,0 +1,461 @@
+#include<iostream>
+#include<conio.h>;
+using namespace std;
+char maze[25][25];
+char player='P';
+void fillmaze();
+void printmaze();
+void fillmaze2();
+void printmaze2();
+int row,column;
+int rowend, columnend;
+void up();
+void down();
+void left();
+void right();
+
+
+
+void level1();
+void level2();
+
+int main()
+{	cout<<"Guide yourself through the maze and reach X"<<endl;
+	cout<<"W A S D are the controls\n\n\n"<<endl;	
+	level1();
+	cout<<"Would you like to play the next level (y/n)"<<endl;
+	char cont;
+	cont=getch();
+	if (cont=='y')
+	{
+		level2();
+	}
+	else 
+		cout<<"Thanks for playing"<<endl;
+
+
+	
+		
+	
+	system("pause");
+	return 0;
+
+}
+void fillmaze()
+
+{
+	for (int i=0;i<25;i++)
+	{
+		for (int j=0;j<25;j++)
+		{
+			if (i==2 && j<10)
+			{
+				maze[i][j]=255;
+				
+			}
+			else if (j==9 && i>2 && i<5)
+			{
+				maze[i][j]=255;
+				
+			}
+			else if (i==4 && j>2 && j<13)
+			{
+				maze[i][j]=255;
+				
+			}
+			else if (j==3 && i>3 && i<14)
+			{
+				maze[i][j]=255;
+				
+			}
+			else if (i==13 &&  j<15 && j>3)
+			{
+				maze[i][j]=255;
+				
+			}
+
+			else if (j==9 && i>3 && i<9)
+			{
+				maze[i][j]=255;
+				
+			}
+			else if (i==8 && j<9 && j>5)
+			{
+				maze[i][j]=255;
+				
+			}
+			else if (j==7 && i>13 && i<18)
+			{
+				maze[i][j]=255;
+				
+			}
+			else if (i==17 && j>1 && j<=7)
+			{
+				maze[i][j]=255;
+				
+			}
+			else if ( j==4 && i>17 && i<23)
+			{
+				maze[i][j]=255;
+				
+			}
+			else if (i==23 && j>0 && j<12)
+			{
+				maze[i][j]=255;
+				
+			}
+			else if (j==15 & i>12 && i<19)
+			{
+				maze[i][j]=255;
+				
+			}
+			else if (i==18 && j>10 && j<16)
+			{
+				maze[i][j]=255;
+				
+			}
+			else if (j==11 && i>17 && i<22)
+			{
+				maze[i][j]=255;
+				
+			}
+			else if (i==21 && j>8 && j<20)
+			{
+				maze[i][j]=255;
+				
+			}
+			else if (j==18 && i<16 && i>10)
+			{
+				maze[i][j]=255;
+			
+			}
+			else if (i==10 && j<22 && j>11)
+			{
+				maze[i][j]=255;
+				
+			}
+			else if (j==12 && i>10 && i<14)
+			{
+				maze[i][j]=255;
+				
+			}
+			else if (i==23 && j>12 && j<24)
+			{
+				maze[i][j]=255;
+				
+			}
+			else if (j==20 && i>16 && i<23)
+			{
+				maze[i][j]=255;
+				
+			}
+			else if (i==22 && j>20 && j<24)
+			{
+				maze[i][j]=255;
+				
+			}
+			else if (j==23 && i<23 && i>6)
+			{
+				maze[i][j]=255;
+				
+			}
+			else if (i==7 && j<23 && j>12)
+			{
+				maze[i][j]=255;
+				
+			}
+			else if (j==17 && i>1 && i<9)
+			{
+				maze[i][j]=255;
+				
+			}
+			else if (i==2 && j<24 && j>10)
+			{
+				maze[i][j]=255;
+				
+			}
+			else if (j==23 && i>2 && i <6)
+			{
+				maze[i][j]=255;
+				
+			}
+			else if ( i==5 && j>23 && j<=24)
+			{
+				maze[i][j]=255;
+				
+			}
+
+			else
+			{
+				maze[i][j]='*';
+				
+			}
+		}
+		
+	}
+}
+void printmaze()
+{
+	for (int i=0;i<25;i++)
+	{
+		for (int j=0;j<25;j++)
+		{
+			cout<<maze[i][j]<<" ";
+		}
+		cout<<endl;
+	}
+}
+
+void fillmaze2()
+
+{
+	for (int i=0;i<25;i++)
+	{
+		for (int j=0;j<25;j++)
+		{
+			if (j==2 && i<10)
+			{
+				maze[i][j]=255;
+				
+			}
+			else if (i==9 && j>2 && j<5)
+			{
+				maze[i][j]=255;
+				
+			}
+			else if (j==4 && i>2 && i<13)
+			{
+				maze[i][j]=255;
+				
+			}
+			else if (i==3 && j>3 && j<14)
+			{
+				maze[i][j]=255;
+				
+			}
+			else if (j==13 &&  i<15 && i>3)
+			{
+				maze[i][j]=255;
+				
+			}
+
+			else if (i==9 && j>3 && j<9)
+			{
+				maze[i][j]=255;
+				
+			}
+			else if (j==8 && i<9 && i>5)
+			{
+				maze[i][j]=255;
+				
+			}
+			else if (i==7 && j>13 && j<18)
+			{
+				maze[i][j]=255;
+				
+			}
+			else if (j==17 && i>1 && i<=7)
+			{
+				maze[i][j]=255;
+				
+			}
+			else if ( i==4 && j>17 && j<23)
+			{
+				maze[i][j]=255;
+				
+			}
+			else if (j==23 && i>0 && i<12)
+			{
+				maze[i][j]=255;
+				
+			}
+			else if (i==15 & j>12 && j<19)
+			{
+				maze[i][j]=255;
+				
+			}
+			else if (j==18 && i>10 && i<16)
+			{
+				maze[i][j]=255;
+				
+			}
+			else if (i==11 && j>17 && j<22)
+			{
+				maze[i][j]=255;
+				
+			}
+			else if (j==21 && i>8 && i<20)
+			{
+				maze[i][j]=255;
+				
+			}
+			else if (i==18 && j<16 && j>10)
+			{
+				maze[i][j]=255;
+			
+			}
+			else if (j==10 && i<22 && i>11)
+			{
+				maze[i][j]=255;
+				
+			}
+			else if (i==12 && j>10 && j<14)
+			{
+				maze[i][j]=255;
+				
+			}
+			else if (j==23 && i>12 && i<24)
+			{
+				maze[i][j]=255;
+				
+			}
+			else if (i==20 && j>16 && j<23)
+			{
+				maze[i][j]=255;
+				
+			}
+			else if (j==22 && i>20 && i<24)
+			{
+				maze[i][j]=255;
+				
+			}
+			else if (i==23 && j<23 && j>6)
+			{
+				maze[i][j]=255;
+				
+			}
+			else if (j==7 && i<23 && i>12)
+			{
+				maze[i][j]=255;
+				
+			}
+			else if (i==17 && j>1 && j<9)
+			{
+				maze[i][j]=255;
+				
+			}
+			else if (j==2 && i<24 && i>10)
+			{
+				maze[i][j]=255;
+				
+			}
+			else if (i==23 && j>2 && j <6)
+			{
+				maze[i][j]=255;
+				
+			}
+			else if ( j==5 && i>23 && i<=24)
+			{
+				maze[i][j]=255;
+				
+			}
+
+			else
+			{
+				maze[i][j]='*';
+				
+			}
+		}
+		
+	}
+}
+void right()
+{
+
+	if (maze[row][column+1]!='*')
+		column++;
+
+		maze[row][column]=player;
+			maze[row][column-1]=255;
+	system("cls");	
+}
+void up()
+{
+	if (maze[row-1][column]!='*')
+		row--;
+	maze[row][column]=player;
+	maze[row+1][column]=255;
+	
+	system("cls");
+}
+void down()
+{
+	if (maze[row+1][column]!='*')
+		row++;
+	maze[row][column]=player;
+		maze[row-1][column]=255;
+	system("cls");
+}
+void left ()
+{
+	if (maze[row][column-1]!='*')
+		column--;
+	maze[row][column]=player;
+		maze[row][column+1]=255;
+
+	system("cls");	
+}
+
+void level1()
+{
+	fillmaze();
+	row=2;
+	column=0;
+	rowend=5;
+	columnend=24;
+
+		
+	maze[rowend][columnend]='X';
+		maze[row][column]=player;
+		while (maze[rowend][columnend]!=player)
+		{
+		printmaze();
+		char move;
+		move=getch();
+		switch (move)
+		{
+		case 'w':
+			up();
+			break;
+		case 'd':
+			right();
+			break;
+		case 's':
+			down();
+			break;
+		case 'a':
+			left();
+			break;		
+		}
+		}	
+		cout<<"Yay level Cleared"<<endl;
+}
+void level2()
+{
+	fillmaze2();
+		row=24;
+		column=5;
+		maze[row][column]=player;
+		
+		rowend=1;		
+		columnend=2;
+		maze[rowend][columnend]='X';
+		
+
+		while (maze[rowend][columnend]!=player)
+		{
+			printmaze();
+			char move;
+			move=getch();
+			if (move=='w')
+				up();
+			else if (move=='s')
+				down();
+			else if (move=='a')
+				left();
+			else if (move=='d')
+				right();
+			}
+		cout<<"Level Cleared"<<endl;
+		cout<<"Thanks for playing"<<endl;
+}
