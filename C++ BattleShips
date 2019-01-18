@@ -1,0 +1,153 @@
+#include <iostream>
+using namespace std;
+
+enum align {
+	horizontal, vertical
+};
+
+class ship{
+private:
+	//int alignment;
+	int size;
+	align s;
+	int _x, _y;
+	int size;
+	int life;
+	int value;
+/* data members here */
+/* getLife() */
+
+	ship()				//default constructor 
+	{
+		_x = 1;
+		_y = 1;
+		size = 4;
+		value = 7;
+		align a;
+	}
+	ship(int x,int y, int size, align alignment)
+	{
+	x = x;
+		y = y;
+		_size = size;
+		_value = value;
+		a = s;
+	}// overloaded cosntructor 
+	/*isDestroyed*/
+	/*DamageShip*/
+int  getLife()
+	{
+		life = size;
+		return life;
+	}
+	void getSize()
+	{
+		cout << "Size of your Battleship is same as life" << size << endl;
+	}
+	/*isDestroyed*/
+	bool  isDestroyed()
+	{
+		if (life == 0)
+			return 1;
+	}
+	/*DamageShip*/
+	virtual void damageShip()
+	{
+		life--;
+	}
+	bool isLocValid(int x, int y)		//checks whether the input location (x,y) matches any of the locations of the ship
+	{
+		bool toret = false;
+		if(alignment == horizontal)	//computing all locations the ship occupies given its alignment
+		{
+			if (this-> x == x && (y >= this->y && y < (this->y+size)))
+				toret= true;
+		}
+		else
+		{
+			if (this-> y == y && (x >= this->x && x < (this->x+size)))
+				toret= true;
+		}
+		return toret;
+	}
+	bool damageAtLoc(int x, int y)			//damage ship at location
+	{
+		if(isLocValid(x,y))
+		{	
+		damageShip();
+		return true;
+		}
+		return false;
+	}
+	
+	
+};
+/*derived class Submarine*/
+class Submarine : public ship
+{
+private:
+public:
+}
+
+/*derived class yatch*/
+
+//FOR TESTING ONLY PLEASE COMMENT WHEN USING WITH BATTLESHIPS.CPP
+int main()
+{
+
+	int main() {
+		//creating two users
+		user u1;
+		user u2;
+		//print board for user 1
+		u1.printboard();
+		cout << "\n" << endl;
+		//printing board for user 2
+		u2.printboard();
+		cout << "\n" << endl;
+
+		//what hitUser returns 
+		cout << u2.hitUser(0, 0, u1) << endl;
+		//damaging submarine for both users 
+		u1.hitUser(0, 0, u2);
+		u2.hitUser(0, 1, u1);
+		u1.hitUser(0, 1, u2);
+		u2.hitUser(0, 2, u1);
+		u1.hitUser(0, 2, u2);
+
+		//damaging yatch 
+		u1.hitUser(2, 2, u2);
+		u2.hitUser(2, 2, u1);
+		u1.hitUser(3, 2, u2);
+		u2.hitUser(3, 2, u1);
+
+		cout << endl;
+		cout << u2.lifeLeft() << endl;
+		//damaging submarine
+		u1.hitUser(0, 0, u2);
+		u2.hitUser(0, 1, u1);
+		u1.hitUser(0, 1, u2);
+		u2.hitUser(0, 2, u1);
+		u1.hitUser(0, 2, u2);
+
+		//checking who has won 
+		u1.hasWon(u2);
+		u2.hasWon(u1);		//u2 should wint
+		cout << endl;
+		//checking damage
+		cout << u1.lifeLeft() << endl;
+		cout << u2.lifeLeft() << endl;
+
+		return 0;
+	}
+	//test ship code here 
+	//ship *aship; 
+	//submarine sub(0,0,horizontal);	//location and alignment (x,y,align) 
+	//aship = &sub; 
+	//for(int i = 0; i<4; i++)		//repeat 4 times
+	//aship->damageAtLoc(0,0); 		//bomb ship at location (x,y) 
+	//cout<<aship->getLife(); 
+	//cout<<aship->isDestroyed();				
+	//similar code for yatch 		//create new yatch, damage it and check 
+
+}
